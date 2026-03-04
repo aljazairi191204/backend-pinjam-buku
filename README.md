@@ -251,15 +251,6 @@ Silakan fork repository ini dan buat pull request untuk kontribusi. Untuk peruba
 
 MIT License - silakan gunakan untuk keperluan belajar atau komersial.
 
-## 📞 Kontak
-
-- **GitHub**: [@aljazairi191204](https://github.com/aljazairi191204)
-- **Email**: aljazairi191204@gmail.com
-
----
-**Dibuat dengan ❤️ untuk Perpustakaan Edukarya**
-```
-
 ## Cara Menggunakan:
 
 1. **Copy semua teks di atas** (dari "```markdown" sampai "```")
@@ -274,10 +265,3 @@ git add README.md
 git commit -m "Add README documentation"
 git push
 ```
-
-## Tampilan README:
-Setelah di-push, README akan tampil cantik di halaman repository GitHub Anda dengan:
-- Emoji yang menarik
-- Tabel yang rapi
-- Format kode yang jelas
-- Struktur yang terorganisir
