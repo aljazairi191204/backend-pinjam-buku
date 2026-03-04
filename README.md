@@ -64,15 +64,8 @@ Backend API untuk sistem manajemen peminjaman buku perpustakaan Edukarya. Dibang
    ```
 
 5. **Jalankan aplikasi**
-   
-   Development mode (dengan nodemon):
    ```bash
    npm run dev
-   ```
-   
-   Production mode:
-   ```bash
-   npm start
    ```
 
 ## 📁 Struktur Folder
@@ -80,24 +73,24 @@ Backend API untuk sistem manajemen peminjaman buku perpustakaan Edukarya. Dibang
 ```
 backend-pinjam-buku/
 ├── config/
-│   └── config.js           # Konfigurasi aplikasi
+│   └── config.js
 ├── middleware/
-│   └── auth.js             # Middleware autentikasi JWT
+│   └── auth.js
 ├── models/
-│   ├── Admin.js             # Model admin
-│   ├── Buku.js              # Model buku
-│   ├── Peminjam.js          # Model peminjam
-│   └── Peminjaman.js        # Model peminjaman
+│   ├── Admin.js
+│   ├── Buku.js
+│   ├── Peminjam.js
+│   └── Peminjaman.js
 ├── routes/
-│   ├── auth.js              # Route autentikasi
-│   ├── buku.js              # Route manajemen buku
-│   ├── peminjam.js          # Route manajemen peminjam
-│   └── peminjaman.js        # Route manajemen peminjaman
-├── .env.example              # Contoh environment variables
-├── .gitignore                # File yang diabaikan git
-├── package.json              # Dependencies dan scripts
-├── server.js                 # Entry point aplikasi
-└── README.md                 # Dokumentasi
+│   ├── auth.js
+│   ├── buku.js
+│   ├── peminjam.js
+│   └── peminjaman.js
+├── .env.example
+├── .gitignore
+├── package.json
+├── server.js
+└── README.md
 ```
 
 ## 🔌 API Endpoints
@@ -137,11 +130,6 @@ backend-pinjam-buku/
 | GET | `/api/peminjaman/admin` | Lihat semua peminjaman | Admin |
 | DELETE | `/api/peminjaman/admin/:id` | Hapus data peminjaman | Admin |
 | DELETE | `/api/peminjaman/admin` | Hapus semua data | Admin |
-
-### Root
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| GET | `/api` | Informasi API |
 
 ## 📊 Model Data
 
@@ -205,63 +193,37 @@ backend-pinjam-buku/
 | `JWT_EXPIRES_IN` | Masa berlaku token | 8h |
 | `MAX_FILE_SIZE` | Maksimal ukuran file upload | 20mb |
 | `CORS_ORIGIN` | Origin yang diizinkan | http://localhost:5173 |
-| `LOG_LEVEL` | Level logging | info |
-| `LOG_FILE` | Simpan log ke file | false |
 
 ## 🚦 Menjalankan dengan PM2 (Production)
 
 ```bash
-# Install PM2 global
 npm install -g pm2
-
-# Jalankan aplikasi
 pm2 start server.js --name backend-pinjam-buku
-
-# Save PM2 config
 pm2 save
 pm2 startup
 ```
 
 ## 📝 Catatan Penggunaan
 
-1. **Autentikasi**: 
-   - Setelah login, simpan token yang didapat
-   - Kirim token di header: `Authorization: Bearer <token>`
-
-2. **ID Buku**: 
-   - ID buku bersifat unique, tentukan sendiri saat create
-
-3. **ID Peminjam**:
-   - Auto-generated dengan format `PMJ-XXXXXXXX`
-
-4. **Stok Buku**:
-   - Otomatis berkurang saat peminjaman
-   - Otomatis bertambah saat pengembalian
-   - Status berubah otomatis berdasarkan jumlah
-
-5. **Keterlambatan**:
-   - Dihitung otomatis (7 hari batas waktu)
-   - Status berubah jadi "dikembalikan terlambat" jika >7 hari
+1. **Autentikasi**: Setelah login, kirim token di header: `Authorization: Bearer <token>`
+2. **ID Buku**: ID buku bersifat unique, tentukan sendiri saat create
+3. **ID Peminjam**: Auto-generated dengan format `PMJ-XXXXXXXX`
+4. **Stok Buku**: Otomatis berkurang saat peminjaman, bertambah saat pengembalian
+5. **Keterlambatan**: Dihitung otomatis (7 hari batas waktu)
 
 ## 🤝 Kontribusi
 
-Silakan fork repository ini dan buat pull request untuk kontribusi. Untuk perubahan besar, buka issue dulu untuk diskusi.
+Silakan fork repository ini dan buat pull request untuk kontribusi.
 
 ## 📄 Lisensi
 
-MIT License - silakan gunakan untuk keperluan belajar atau komersial.
+MIT License
 
-## Cara Menggunakan:
+## 📞 Kontak
 
-1. **Copy semua teks di atas** (dari "```markdown" sampai "```")
-2. Buka folder backend Anda
-3. Buat file baru dengan nama `README.md`
-4. **Paste** teks yang sudah di-copy
-5. **Save** file tersebut
-6. Add, commit, dan push ke GitHub:
+- **GitHub**: [@aljazairi191204](https://github.com/aljazairi191204)
+- **Email**: aljazairi191204@gmail.com
 
-```bash
-git add README.md
-git commit -m "Add README documentation"
-git push
+---
+**Dibangun untuk Perpustakaan Edukarya**
 ```
