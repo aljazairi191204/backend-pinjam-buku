@@ -8,7 +8,8 @@ module.exports = {
   },
 
   database: {
-    uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/peminjaman_buku',
+    // Prioritaskan MONGODB_URL dari Railway, fallback ke MONGODB_URI atau localhost
+    uri: process.env.MONGODB_URL || process.env.MONGODB_URI || 'mongodb://localhost:27017/peminjaman_buku',
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -28,7 +29,10 @@ module.exports = {
   },
 
   cors: {
-    origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : ['http://localhost:5173'],
+    origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : [
+      'http://localhost:5173',
+      'https://frontend-pinjam-buku-production.up.railway.app'
+    ],
     credentials: true,
   },
 
