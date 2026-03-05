@@ -1,6 +1,15 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
+// DEBUG: Lihat semua environment variable (kecuali yang sensitif)
+console.log('========== ALL ENV VARIABLES ==========');
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('PORT:', process.env.PORT);
+console.log('MONGODB_URL:', process.env.MONGODB_URL ? '✅ ADA' : '❌ TIDAK ADA');
+console.log('MONGODB_URI:', process.env.MONGODB_URI ? '✅ ADA' : '❌ TIDAK ADA');
+console.log('JWT_SECRET:', process.env.JWT_SECRET ? '✅ ADA' : '❌ TIDAK ADA');
+console.log('=======================================');
+
 module.exports = {
   server: {
     port: process.env.PORT || 5000,
@@ -8,7 +17,7 @@ module.exports = {
   },
 
   database: {
-    // Urutan prioritas yang benar
+    // Urutan prioritas: MONGODB_URL (Railway) → MONGODB_URI (manual) → localhost
     uri: process.env.MONGODB_URL || process.env.MONGODB_URI || 'mongodb://localhost:27017/peminjaman_buku',
     options: {
       useNewUrlParser: true,
